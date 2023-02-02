@@ -20,9 +20,10 @@ class AlbumRepositry
     return albums
   end
 
-  def find(artist_id)
-    sql = "SELECT id, title, release_year, artist_id FROM albums WHERE artist_id = #{artist_id}"
-    result_set = DatabaseConnection.exec_params(sql, [])
+  def find(id)
+    sql = "SELECT id, title, release_year, artist_id FROM albums WHERE id = $1"
+    params = [id]
+    result_set = DatabaseConnection.exec_params(sql, params)
 
     result_set.each do |record|
       album = Album.new

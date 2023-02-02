@@ -10,14 +10,14 @@ album_repositry = AlbumRepositry.new
 artist_repositry = ArtistRepositry.new
 
 # Print out each record from the result set .
-album_repositry.all.each do |album|
-  p album
-end
+# album_repositry.all.each do |album|
+#   p album
+# end
 
-artist_repositry.all.each do |artist|
-  p artist
-end
+# artist_repositry.all.each do |artist|
+#   p artist
+# end
 
 
 
-p album_repositry.find(1)
+p album_repositry.find(3)
