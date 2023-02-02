@@ -1,7 +1,7 @@
 require_relative './database_connection.rb'
 require_relative './recipe.rb'
 
-class RecipeRepositry
+class RecipeRepository
   def all
     recipes = []
 

@@ -1,6 +1,6 @@
 require_relative 'album'
 
-class AlbumRepositry
+class AlbumRepository
   def all
     albums = []
 

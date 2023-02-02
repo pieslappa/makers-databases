@@ -49,7 +49,7 @@ class Recipe
 end
 
 # Repository class
-# (in lib/recipe_repositry.rb)
+# (in lib/recipe_repository.rb)
 class RecipeRepository
 end
 ```
@@ -84,7 +84,7 @@ Using comments, define the method signatures (arguments and return value) and wh
 # Table name: recipes
 
 # Repository class
-# (in lib/recipe_repositry.rb)
+# (in lib/recipe_repository.rb)
 
 class RecipeRepository
 
@@ -120,7 +120,7 @@ These examples will later be encoded as RSpec tests.
 # 1
 # Get all recipes
 
-repo = RecipeRepositry.new
+repo = RecipeRepository.new
 
 recipes = repo.all
 
@@ -140,7 +140,7 @@ recipes[1].rating # =>  5
 # 2
 # Get a single student
 
-repo = RecipeRepositry.new
+repo = RecipeRepository.new
 
 recipe = repo.find(1)
 
@@ -163,9 +163,9 @@ This is so you get a fresh table contents every time you run the test suite.
 ```ruby
 # EXAMPLE
 
-# file: spec/recipe_repositry_spec.rb
+# file: spec/recipe_repository_spec.rb
 
-describe RecipeRepositry do
+describe RecipeRepository do
   def reset_recipes_table
     seed_sql = File.read('spec/seeds_recipes.sql')
     connection = PG.connect({ host: '127.0.0.1', dbname: 'recipes' })
@@ -177,7 +177,7 @@ describe RecipeRepositry do
   end
 
   it "returns all of the recipes" do
-    repo = RecipeRepositry.new
+    repo = RecipeRepository.new
 
     recipes = repo.all
 
@@ -196,7 +196,7 @@ describe RecipeRepositry do
   end
 
   it "returns the recipe using the find method" do
-    repo = RecipeRepositry.new
+    repo = RecipeRepository.new
 
     recipe = repo.find(1)
 

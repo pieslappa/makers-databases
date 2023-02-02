@@ -1,6 +1,6 @@
-require_relative '../lib/album_repositry.rb'
+require_relative '../lib/album_repository.rb'
 
-RSpec.describe AlbumRepositry do
+RSpec.describe AlbumRepository do
 
   def reset_albums_table
     seed_sql = File.read('spec/seeds_albums.sql')
@@ -13,7 +13,7 @@ RSpec.describe AlbumRepositry do
   end
 
   it "returns 3 albums" do  
-    repo = AlbumRepositry.new
+    repo = AlbumRepository.new
     albums = repo.all
 
     expect(albums.length).to eq 3
@@ -23,7 +23,7 @@ RSpec.describe AlbumRepositry do
   end
 
   it "returns album details for the album inputted" do
-    repo = AlbumRepositry.new
+    repo = AlbumRepository.new
     result = repo.find(1)
 
     expect(result.id).to eq '1' 
@@ -33,7 +33,7 @@ RSpec.describe AlbumRepositry do
   end
 
   it "adds a given album" do
-    repo = AlbumRepositry.new
+    repo = AlbumRepository.new
     
     album = Album.new
     album.title = 'Dangerous'
@@ -48,7 +48,7 @@ RSpec.describe AlbumRepositry do
   end
 
   it "deletes a given album" do
-    repo = AlbumRepositry.new
+    repo = AlbumRepository.new
     repo.delete(1)
     all_albums = repo.all
     expect(all_albums.length).to eq 2

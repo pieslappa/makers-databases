@@ -1,7 +1,7 @@
-require_relative '../lib/recipe_repositry'
+require_relative '../lib/recipe_repository'
 require_relative '../lib/database_connection.rb'
 
-describe RecipeRepositry do
+describe RecipeRepository do
   def reset_recipes_table
     seed_sql = File.read('spec/seeds_recipes.sql')
     connection = PG.connect({ host: '127.0.0.1', dbname: 'recipes_discovery_test' })
@@ -13,7 +13,7 @@ describe RecipeRepositry do
   end
 
   it "returns all of the recipes" do
-    repo = RecipeRepositry.new
+    repo = RecipeRepository.new
 
     recipes = repo.all
 
@@ -32,7 +32,7 @@ describe RecipeRepositry do
   end
 
   it "returns the recipe using the find method" do
-    repo = RecipeRepositry.new
+    repo = RecipeRepository.new
 
     recipe = repo.find(1)
 

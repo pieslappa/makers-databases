@@ -1,6 +1,6 @@
 require_relative 'artist'
 
-class ArtistRepositry
+class ArtistRepository
   def all
     artists = []
 

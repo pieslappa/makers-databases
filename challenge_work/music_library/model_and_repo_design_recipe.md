@@ -71,7 +71,7 @@ end
 
 # Repository class
 # in lib/student_repository.rb
-class AlbumRepositry
+class AlbumRepository
 end
 ```
 
@@ -108,7 +108,7 @@ Using comments, define the method signatures (arguments and return value) and wh
 # Repository class
 # (in lib/album_repository.rb)
 
-class AlbumRepositry
+class AlbumRepository
 
   # Selecting all records
   # No arguments
@@ -151,7 +151,7 @@ students[1].cohort_name # =>  'May 2022'
 # 1
 # Get all the albums
 
-repo = AlbumRepositry.new
+repo = AlbumRepository.new
 
 albums = repo.all
 
@@ -187,14 +187,14 @@ def reset_albums_table
   connection.exec(seed_sql)
 end
 
-describe AlbumRepositry do
+describe AlbumRepository do
   before(:each) do 
     reset_albums_table
   end
 
   # (your tests will go here).
   it "returns 3 albums" do
-    repo = AlbumRepositry.new
+    repo = AlbumRepository.new
     albums = repo.all
 
     expect(albums.length).to eq 2
@@ -204,7 +204,7 @@ describe AlbumRepositry do
   end
 
   it "returns 1 for artist_id" do
-    repo = AlbumRepositry.new
+    repo = AlbumRepository.new
     result = repo.find(1)
 
     expect(result.id).to eq 1 
@@ -214,20 +214,20 @@ describe AlbumRepositry do
   end
 
   it "adds a given album" do
-    repo = AlbumRepositry.new
+    repo = AlbumRepository.new
     
     album = Album.new
     album.title = 'Dangerous'
     album.release_year = 1991
     album.artist_id = 1
 
-    all_albums = repositry.all
+    all_albums = repository.all
 
     expect(all_albums.length).to eq 4
   end
 
   it "deletes a given album" do
-    repo = AlbumRepositry.new
+    repo = AlbumRepository.new
 
   end
 

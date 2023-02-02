@@ -1,6 +1,6 @@
 require_relative './book'
 
-class BookRepositry
+class BookRepository
   def all
     sql = 'SELECT id, title, author_name FROM books;'
     result_set = DatabaseConnection.exec_params(sql, [])

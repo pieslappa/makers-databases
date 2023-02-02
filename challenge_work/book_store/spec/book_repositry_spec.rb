@@ -1,6 +1,6 @@
-require_relative '../lib/book_repositry.rb'
+require_relative '../lib/book_repository.rb'
 
-RSpec.describe BookRepositry do
+RSpec.describe BookRepository do
   def reset_books_table
     seed_sql = File.read('spec/seeds_books.sql')
     connection = PG.connect({ host: '127.0.0.1', dbname: 'book_store_test' })
@@ -12,7 +12,7 @@ RSpec.describe BookRepositry do
   end
 
   it "returns a printed list of all books" do
-    books = BookRepositry.new
+    books = BookRepository.new
     expect(books.all).to eq "1 - Emma - Jane Austen\\n2 - Dracula - Bram Stoker"
   end
 end

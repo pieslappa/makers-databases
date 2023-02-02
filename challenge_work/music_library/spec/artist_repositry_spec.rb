@@ -1,6 +1,6 @@
-require_relative '../lib/artist_repositry.rb'
+require_relative '../lib/artist_repository.rb'
 
-RSpec.describe ArtistRepositry do
+RSpec.describe ArtistRepository do
 
   def reset_artists_table
     seed_sql = File.read('spec/seeds_artists.sql')
@@ -13,7 +13,7 @@ RSpec.describe ArtistRepositry do
   end
 
   it "returns 2 artists" do  
-    repo = ArtistRepositry.new
+    repo = ArtistRepository.new
     artists = repo.all
 
     expect(artists.length).to eq 2

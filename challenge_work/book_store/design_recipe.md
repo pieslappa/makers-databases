@@ -101,7 +101,7 @@ Using comments, define the method signatures (arguments and return value) and wh
 # Repository class
 # (in lib/book_repository.rb)
 
-class BookRepositry
+class BookRepository
 
   # Selecting all records
   # No arguments
@@ -126,7 +126,7 @@ These examples will later be encoded as RSpec tests.
 # 1
 # Get all students
 
-repo = BookRepositry.new
+repo = BookRepository.new
 
 books = repo.all
 
@@ -160,14 +160,14 @@ def reset_books_table
   connection.exec(seed_sql)
 end
 
-describe BookRepositry do
+describe BookRepository do
   before(:each) do 
     reset_books_table
   end
 
   # (your tests will go here).
   it "returns a printed list of all books" do
-    books = BookRepositry.new
+    books = BookRepository.new
     expect(books.all).to eq "1 - Emma - Jane Austen\n2 - Dracula - Bram Stoker"
   end
 end
