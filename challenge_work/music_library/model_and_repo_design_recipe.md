@@ -213,6 +213,24 @@ describe AlbumRepositry do
     expect(album.artist_id).to eq '1'
   end
 
+  it "adds a given album" do
+    repo = AlbumRepositry.new
+    
+    album = Album.new
+    album.title = 'Dangerous'
+    album.release_year = 1991
+    album.artist_id = 1
+
+    all_albums = repositry.all
+
+    expect(all_albums.length).to eq 4
+  end
+
+  it "deletes a given album" do
+    repo = AlbumRepositry.new
+
+  end
+
 end
 ```
 

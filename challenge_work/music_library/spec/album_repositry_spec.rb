@@ -31,4 +31,26 @@ RSpec.describe AlbumRepositry do
     expect(result.release_year).to eq '1982' 
     expect(result.artist_id).to eq '1'
   end
+
+  it "adds a given album" do
+    repo = AlbumRepositry.new
+    
+    album = Album.new
+    album.title = 'Dangerous'
+    album.release_year = 1991
+    album.artist_id = 1
+
+    repo.create(album)
+
+    all_albums = repo.all
+
+    expect(all_albums.length).to eq 4
+  end
+
+  it "deletes a given album" do
+    repo = AlbumRepositry.new
+    repo.delete(1)
+    all_albums = repo.all
+    expect(all_albums.length).to eq 2
+  end
 end
