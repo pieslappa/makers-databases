@@ -100,7 +100,6 @@ You'll then be able to say that:
 ## 4. Write the SQL.
 
 ```sql
--- EXAMPLE
 -- file: blog_table.sql
 
 -- Replace the table name, columm names and types.
