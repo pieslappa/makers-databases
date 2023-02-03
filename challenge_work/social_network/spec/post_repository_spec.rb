@@ -1,6 +1,6 @@
 require_relative '../lib/post_repository.rb'
 
-describe PostRepository do
+RSpec.describe PostRepository do
   def reset_posts_table
     seed_sql = File.read('spec/seeds_social_network.sql')
     connection = PG.connect({ host: '127.0.0.1', dbname: 'social_network' })
