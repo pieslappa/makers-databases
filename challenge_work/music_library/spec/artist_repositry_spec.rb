@@ -21,4 +21,12 @@ RSpec.describe ArtistRepository do
     expect(artists.first.name).to eq 'Michael Jackson' 
     expect(artists.first.genre).to eq 'Pop' 
   end
+
+  it 'finds 1 artist with related albums' do
+    repo = ArtistRepository.new
+    artist = repo.find_with_albums(1)
+
+    expect(artist.name).to eq 'Michael Jackson'
+    expect(artist.albums.length).to eq 1
+  end
 end

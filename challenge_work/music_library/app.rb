@@ -20,6 +20,7 @@ class Application
     @io.puts "What would you like to do?"
     @io.puts "1 - List all albums"
     @io.puts "2 - List all arists"
+    @io.puts "3 - Lists all albums for a given artist"
 
     @io.puts "Enter your choice:"
     choice = @io.gets.chomp
@@ -35,6 +36,15 @@ class Application
       puts "Here is the list of artists:"
       artists.each do |artist|
         puts "* #{artist.id} - #{artist.name}"
+      end
+    elsif choice == "3"
+      puts "Enter the artist ID you'd like to search for:"
+      id = gets.chomp
+      artist = @artist_repository.find_with_albums(id)
+      albums = artist.albums
+      puts "Albums by #{artist.name}:"
+      albums.each do |album|
+        puts "#{album.title} - #{album.release_year}"
       end
     else
       p "Choice not recognised"
